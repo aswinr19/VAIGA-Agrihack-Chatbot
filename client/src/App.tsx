@@ -24,7 +24,7 @@ const App = () => {
   
     console.log(messages);
     try {
-      const response = await fetch(``,{
+      const response = await fetch(`http://localhost:3000/ask`,{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
