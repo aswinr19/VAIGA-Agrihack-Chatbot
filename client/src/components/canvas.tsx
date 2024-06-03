@@ -1,3 +1,5 @@
+import Bubble from './bubble';
+
 
 interface MessageInterface {
   message: string;
@@ -9,10 +11,16 @@ interface MessageListInterface {
   messages: MessageInterface[]
 }
 
-const Canvas: React.FC<MessageListInterface> = () => {
+const Canvas: React.FC<MessageListInterface> = ({ messages }) => {
   return (
     <div>
-      
+      { messages.map((message) => {
+        <Bubble
+            message: message.message,
+            timestamp: message.timestamp,
+            direction: message.direction
+        />
+      }) } 
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css'
 import PromptInput from './components/promptInput.tsx';
+import Canvas from './components/canvas';
+
 
 interface MessageInterface {
   message: string;
@@ -50,6 +52,7 @@ const App = () => {
   return (
     <>
       <div className=''>
+        <Canvas messages={messages} />
        <PromptInput onSentPrompt={sentPropmt}  /> 
       </div>
    </>
