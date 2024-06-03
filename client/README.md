@@ -1,1 +1,0 @@
-### Vaiga Agrihack Chatbot
