@@ -3,13 +3,13 @@ enum Direction {
   Received = 'received'
 }
 
-interface ChatBubbleProps {
+interface ChatBubbleInterface {
   message: string;
   timestamp: string;
   direction: Direction;
 }
 
-const ChatBubble: React.FC<ChatBubbleProps> = ({ message, timestamp, direction }) => {
+const ChatBubble: React.FC<ChatBubbleInterface> = ({ message, timestamp, direction }) => {
  const condition: boolean = direction! === 'sent'; 
 
   return (

@@ -9,14 +9,20 @@ interface FormElements extends HTMLFormControlsCollection {
       readonly elements: FormElements
   }
 
-export default function PromptInput() {
+interface UserInputProps {
+  onSentPrompt: (message: string) => void;
+}
+
+const PromptInput: React.FC<UserInputProps> = ({ onSentPrompt }) => {
   const [prompt, setPrompt] = useState<string>("");
-  
+
   const handleSubmit = (event: React.FormEvent<PromptFormElement> ) => {
     event.preventDefault();
-
-    console.log('submitted promt');
+   
+    onSentPrompt(prompt);
+    console.log('submitted prompt');
     console.log(prompt);
+    
     setPrompt('');
   };
 
@@ -46,3 +52,5 @@ export default function PromptInput() {
     </div>
   );
 }
+
+export default PromptInput;

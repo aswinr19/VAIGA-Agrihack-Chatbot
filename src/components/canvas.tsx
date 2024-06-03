@@ -1,19 +1,18 @@
-import Bubble from './bubble';
 
-const Canvas = ({ messages }) => {
-  
+interface MessageInterface {
+  message: string;
+  timestamp: Date;
+  direction: string;
+}
+
+interface MessageListInterface {
+  messages: MessageInterface[]
+}
+
+const Canvas: React.FC<MessageListInterface> = () => {
   return (
     <div>
-       <Bubble 
-          message='hello wolrd'
-          timestamp='8.00pm'
-          direction='sent'
-          />
-        <Bubble 
-          message='hello'
-          timestamp='8.00pm'
-          direction='received'
-          />
+      
     </div>
   );
 };
