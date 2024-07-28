@@ -1,3 +1,6 @@
 import app from './app'
 
-Bun.serve({ fetch: app.fetch })
+Bun.serve({ 
+  port: 8000,
+  fetch: app.fetch
+})

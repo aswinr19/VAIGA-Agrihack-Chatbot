@@ -3,7 +3,6 @@ import './App.css'
 import PromptInput from './components/promptInput.tsx';
 import Canvas from './components/canvas';
 
-
 interface MessageInterface {
   message: string;
   timestamp: Date;
@@ -24,9 +23,8 @@ const App = () => {
     setMessages(prevMessages => [...prevMessages, userPrompt]);
     setLoading(true);
   
-    console.log(messages);
     try {
-      const response = await fetch(`http://localhost:3000/ask`,{
+      const response = await fetch(`http://localhost:3000/`,{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -44,15 +42,21 @@ const App = () => {
 
       setMessages(prevMessages => [...prevMessages, botResponse]);
       setLoading(false);
-
     } catch(err) {
+      setLoading(false);
       console.log(`Something went wrong :( - details - ${err}`);
     }
   }
+
+  setMessages([
+    {message: 'Hello chatbot!', timestamp: new Date(), direction: 'send'},
+    {message: 'Hello Hooman!', timestamp: new Date(), direction: 'send'}
+  ]);
+        //<Canvas messages={messages} />
+    console.log(messages);
   return (
     <>
       <div className=''>
-        <Canvas messages={messages} />
        <PromptInput onSentPrompt={sentPropmt}  /> 
       </div>
    </>

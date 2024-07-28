@@ -14,7 +14,7 @@ interface UserInputProps {
 }
 
 const PromptInput: React.FC<UserInputProps> = ({ onSentPrompt }) => {
-  const [prompt, setPrompt] = useState<string>("");
+  const [prompt, setPrompt] = useState<string>('');
 
   const handleSubmit = (event: React.FormEvent<PromptFormElement> ) => {
     event.preventDefault();
